@@ -66,9 +66,10 @@ foreach ($vserver in $vservers)
                     $Cluster = $cluster_addr
                     $Volume = $snapshot.Volume
                     $SnapshotName = $snapshot.Name
+                    $Dependency = $snapshot.Dependency
                     $Timestamp = Get-Date ([datetime]'1/1/1970').AddSeconds($snapshot.AccessTime) -f "yyyy-MM-dd HH:mm:ss" 
                     # Add content to file
-                    Add-Content $snapshot_csv ([byte[]][char[]] "\N`t$Cluster`t$SnapshotName`t$Timestamp`t$Volume`t$Vserver`n") -Encoding Byte
+                    Add-Content $snapshot_csv ([byte[]][char[]] "\N`t$Cluster`t$SnapshotName`t$Timestamp`t$Volume`t$Vserver`t$Dependency`n") -Encoding Byte
                     # This is required to ensure that the output file is UNIX encoded, without which MySQL's LOAD DATA
 					# command does not work
                 }
