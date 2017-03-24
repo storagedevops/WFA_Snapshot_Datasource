@@ -15,7 +15,7 @@ Note : Cluster credentials must be configured in the Credentials tab.
 [System.Threading.Thread]::CurrentThread.CurrentCulture="en-US"
 
 # Create the output file
-$snapshot_csv = "./snapshot.csv"
+$snapshot_csv = "./volume_snaps.csv"
 New-Item -Path $snapshot_csv -type file -force
 
 Function Get-ConnectionInfo() {
@@ -69,8 +69,11 @@ foreach ($vserver in $vservers)
                     $Timestamp = Get-Date ([datetime]'1/1/1970').AddSeconds($snapshot.AccessTime) -f "yyyy-MM-dd HH:mm:ss" 
                     # Add content to file
                     Add-Content $snapshot_csv ([byte[]][char[]] "\N`t$Cluster`t$SnapshotName`t$Timestamp`t$Volume`t$Vserver`n") -Encoding Byte
+                    # This is required to ensure that the output file is UNIX encoded, without which MySQL's LOAD DATA
+					# command does not work
                 }
             }
       }
     }
 }
+Get-WFALogger -message "$cluster_addr volume snapshot data acquisition completed in $($elapsedTime.Elapsed.ToString())" -Info
