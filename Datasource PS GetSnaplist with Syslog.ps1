@@ -7,9 +7,11 @@ Snapshot
 - Timestamp
 - Cluster
 - Vserver
+- Snapshot ID
 
 Note : Cluster credentials must be configured in the Credentials tab.
-Version 1.1 - filtering vservers and leaving snapmirror snaps in
+Version 1.1 - filtering vservers and leaving snapmirror snaps out
+This script also sends a syslog message to a logstash server.  The message is formatted to match a netapp syslog message.
 #>
 
 # Ensure that dates are always returned in English
