@@ -4,6 +4,18 @@ WFA Datasource template to collect volume snapshot info and store in cache DB.  
 
 ![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/clones.png "Example of application usage")
 
+# Instructions
+
 Download the dar file and import into your WFA server.
 
 ![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/import.png "Example of Importing the pack")
+
+Create Datasource
+
+![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/createDS.png)
+
+Example of an filter call via API
+
+![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/filtercall.png)
+
+
