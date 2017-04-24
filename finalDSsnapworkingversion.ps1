@@ -220,7 +220,7 @@ $vol_snapshots = Get-NcSnapshot -Query $query -Attributes $attr
                     $SnapshotName = $snapshot.Name
                     $Dependency = $snapshot.Dependency
                     $SnapshotID = $snapshot.SnapshotInstanceUuid
-                    $Timestamp = Get-Date ([datetime]'1/1/1970').AddSeconds($snapshot.AccessTime) -f "yyyy-MM-dd HH:mm:ss" 
+                    $Timestamp = ($snapshot.AccessTimeDT).ToString("yyyy-MM-dd HH:mm:ss") 
                     # Add content to file
                     Add-Content $snapshot_csv ([byte[]][char[]] "\N`t$Cluster`t$SnapshotName`t$Timestamp`t$Volume`t$Vserver`t$Dependency`t$SnapshotID`n") -Encoding Byte
                     # This is required to ensure that the output file is UNIX encoded, without which MySQL's LOAD DATA
