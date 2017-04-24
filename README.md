@@ -14,7 +14,7 @@ Create Datasource
 
 ![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/createDS.png)
 
-Example of a filter call via API
+Example of a filter call via REST
 
 ![alt text](https://github.com/storagedevops/WFA_Snapshot_Datasource/blob/master/images/filtercall.png)
 
